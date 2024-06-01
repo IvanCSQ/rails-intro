@@ -1,0 +1,24 @@
+<%# members = ["thanh", "dimitri", "germain", "damien", "julien"] %>
+
+<h2>Meet our team</h2>
+<ol>
+  <%# members.each do |member| %>
+  <% @members.each do |member| %>
+    <li><%= member.capitalize %></li>
+  <% end %>
+</ol>
+
+<%= link_to "Back", root_path %>
+
+<%# GET /contact?member=something_you_typed %>
+<form action="/contact" method="get">
+  <%# <input type="text" name="member" placeholder="Who are you looking for?"> %>
+  <%# Keep the search context using params in your input %>
+  <input
+    type="text"
+    name="member"
+    value="<%= params[:member] %>"
+    placeholder="Who are you looking for?"
+  >
+  <input type="submit">
+</form>
